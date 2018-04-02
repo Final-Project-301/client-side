@@ -9,6 +9,7 @@ header {
 }
 nav li{
   display:inline;
+  padding-right:3%;
 }
 h2 {
   font-weight: bold;
@@ -18,10 +19,14 @@ h2 {
   margin-top: 15px;
   margin-bottom: 0px;
 }
+#aboutUsPage {
+  margin-left: 10%;
+  margin-right: 10%;
+}
 
 #topImage {
-  margin-top: 160px;
-  
+  margin-top: 5%;
+  margin-right: 10%;
   border-radius: 3px;
   border-top-left-radius: 10px;
 }
