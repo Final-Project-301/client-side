@@ -25,5 +25,9 @@
   header{
     padding-left:15px;
   }
+  #activities input{
+    width:3%
+   }
+   
  
 }
