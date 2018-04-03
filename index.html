@@ -10,19 +10,29 @@
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/modules.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  <script type="text/x-handlebars-template" id=""></script>
+  
+  <script type="text/x-handlebars-template" id="about-us-template">
 
+    <div class="topImage">
+      <img src="{{image_url}}" alt="{{name}} Image" title="{{name}} Image" />
+      <h2>{{name}}</h2>
+      <p>{{bio}}</p>
+      <p class=profileLinks><a href="{{linkedin_url}}">Linked-In</a> | <a href="{{github_url}}">GitHub</a> | <a href="mailto:{{email}}">Email</a></p>
+    </div>
+  </script>
 </head>
 <body>
   <header>
     <div><h1 id="logo"><a href=""> <strong>Play&Rest</strong></a></h1></div>
-  <div><nav>
-      <ul>
-        <li id="home"><a href="">HOME</a></li>
-        <li><a href="">SEARCH</a></li>
-        <li><a href="">ABOUT US</a></li>
-      </ul>
-    </nav></div>
+    <div>
+      <nav>
+        <ul>
+          <li id="home"><a href="">HOME</a></li>
+          <li><a href="">SEARCH</a></li>
+          <li><a href="">ABOUT US</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
    
 
@@ -37,13 +47,17 @@
         </form>
     </section>
     <section id="activities" class="tab-content">
-      <div>
         
-        <select id="activity-filter">
-          <option value="">-- Filter by Type --</option>
-        </select>
-    
-      </div>
+      <label for="filter-boxes">Check the boxes to filter</label>
+      <input type="checkbox" id="dogs" name="dogs" value="dogs">
+      <label for="dogs">Dogs-off leash areas</label>
+      <input type="checkbox" id="play" name="play" value="play">
+      <label for="play">Play areas</label>
+      <input type="checkbox" id="waterfront" name="waterfront" value="waterfront">
+      <label for="waterfront">Waterfronts</label>
+            
+      
+
     </section>
     <section>
       <input id="pac-input" class="controls" type="text" placeholder="Start typing here">
@@ -52,8 +66,9 @@
     
     
     </section>
+
     <section id="aboutUsPage" class="content">
-      <div class="topImage">
+      <!-- <div class="topImage">
         <img src="img/RyanPic.jpg" alt="Ryan Image" title="Ryan Image" />
         <h2>Ryan Groesch</h2>
         <p>Ryan is a left-handed, motorcycle riding, sportsball loving nerd. His interests branch to anything from athletics (baseball, frisbee, football, curling and even cricket) to intellectual endeavors (videogames, reading and thoughtful discussions). Ryan looks to learn something every day and take one step closer to being a "renaissance man".</p>
@@ -63,7 +78,7 @@
         <img src="img/JoannaPic.png" alt="Joanna Image" title="Joanna Image" />
         <h2>Joanna Coll</h2>
         <p>Polish from origin, lived in Ireland and UK before relocating to Seattle with her family 4 years ago. Currently trying to pursue her goal of becoming a Software Dev, but with her love for Python maybe even Data Scientist. Joanna loves to cook and even more to eat, with a passion for gastro-tourism. In a free time she enjoys traveling and volunteer as an event planner.</p>
-        <p class=profileLinks><a href="">Email</a></p>
+        <p class=profileLinks><a href="https://www.linkedin.com/in/joanna-coll/">Linked-In</a> | <a href="https://github.com/johannam999">GitHub</a> | <a href="mailto:johannam999@gmail.com">Email</a></p>
       </div>
       <div class="topImage">
         <img src="img/CollinPic.jpg" alt="Collin Image" title="Collin Image" />
@@ -72,15 +87,14 @@
         <p class=profileLinks><a href="">Email</a></p>
       </div>
       <div class="topImage">
-        <img src="" alt="Scott Image" title="Scott Image" />
+        <img src="img/ScottPic.jpg" alt="Scott Image" title="Scott Image" />
         <h2>Scott Thompson</h2>
-        <p></p>
-        <p class=profileLinks><a href="">Email</a></p>
-      </div>
+        <p>Hello there! My name is Scott, current Code Fellows student and sports fan. I enjoy long walks on the beach, traveling, and the gym. Also have been a big fan of video games throughout my life, duel me in smash!</p>
+        <p class=profileLinks><a href="https://www.linkedin.com/in/scott-thompson-087508158/">Linked-In</a> | <a href="https://github.com/ScottyKnows44">GitHub</a> | <a href="mailto:scottcfalcon@gmail.com">Email</a></p>
+      </div> -->
     </section>
     
   </main>
-  <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZE7tmdg5lXNAD3LpklIr_tivqNEiQEOU&libraries=places"></script> -->
    
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfL336O08zBiCPdcVijYcL6APg0_0UJY&callback=initMap"
@@ -93,10 +107,9 @@
 
   <script src="./scripts/models/page.js" type="text/javascript"></script>
   <script src="./scripts/views/greetingPage.js" type="text/javascript"></script>
+  <script src="./scripts/views/aboutUs.js" type="text/javascript"></script>
   <script src="./scripts/views/mainPage.js" type="text/javascript"></script>
   <script src="./scripts/views/mapView.js" type="text/javascript"></script>
-  <!-- <script src="./scripts/views/error-view.js" type="text/javascript"></script>
-  <script src="./scripts/views/admin-view.js" type="text/javascript"></script> -->
   <script src="./scripts/views/routes.js" type="text/javascript"></script>
 </body>
 </html>
