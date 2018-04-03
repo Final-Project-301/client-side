@@ -1,17 +1,17 @@
 'use strict';
-'use strict';
-function initMap() {
-  var seattle = {lat: 47.6062, lng: -122.3321};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 11,
-    center: seattle
-  });
-  var marker = new google.maps.Marker({
-    position: seattle,
-    map: map
-  });
-   
-}
+
+// function initMap() {
+//   var seattle = {lat: 47.6062, lng: -122.3321};
+//   var map = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 11,
+//     center: seattle
+//   });
+//   var marker = new google.maps.Marker({
+//     position: seattle,
+//     map: map
+//   }); 
+// }
+
 // service = new google.maps.places.PlacesService(map);
 // service.nearbySearch(request, callback);
 
