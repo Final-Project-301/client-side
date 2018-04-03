@@ -3,12 +3,11 @@ body{
 }
 header {
   width: 100%;
-  /* position: fixed;
-  overflow: hidden; */
- 
+
 }
 nav li{
   display:inline;
+  padding-right:3%;
 }
 h2 {
   font-weight: bold;
@@ -18,16 +17,24 @@ h2 {
   margin-top: 15px;
   margin-bottom: 0px;
 }
+#aboutUsPage {
+  margin-left: 10%;
+  margin-right: 10%;
+}
 
-#topImage {
-  margin-top: 160px;
-  
-  border-radius: 3px;
+.topImage {
+  margin-top: 120px;
+  margin-right: 10%;
+  border-radius: 10px; 
   border-top-left-radius: 10px;
 }
 
-div #topImage {
-  margin-top: 120px;
-  border-radius: 3px;
-  border-top-left-radius: 10px;
+
+img{
+  border-radius: 6px;
+  display:block;
+}
+
+form{
+  width:100%;
 }
