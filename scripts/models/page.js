@@ -15,7 +15,7 @@ var app = app || {};
   Place.fetchPlay = callback =>
     $.get('http://localhost:3000/activities/play')
       .then( results => {
-        console.log('fetch PLAY works');
+        console.log(results);
         Place.loadPlay(results);
         if (callback) callback();
       });
