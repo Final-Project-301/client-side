@@ -64,9 +64,11 @@
     <input id="autocomplete" class="controls" type="text" placeholder="search a location">  
     
     <section class="content">
+      <div id="legend"><h3>Legend</h3></div>
 
       <div id="map-canvas"></div>
       <div id="map"></div>
+
     </section>
 
     <section id="aboutUsPage" class="content"> </section>
@@ -81,30 +83,62 @@
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-
+  
   <script src="./scripts/models/page.js" type="text/javascript"></script>
   <script src="./scripts/views/greetingPage.js" type="text/javascript"></script>
   <script src="./scripts/views/aboutUs.js" type="text/javascript"></script>
   <script src="./scripts/views/mainPage.js" type="text/javascript"></script>
   <script src="./scripts/views/mapView.js" type="text/javascript"></script>
-
-
+  
+  
   <!-- <script src="./scripts/views/error-view.js" type="text/javascript"></script>
     <script src="./scripts/views/admin-view.js" type="text/javascript"></script> -->
-
-  <script src="./scripts/views/routes.js" type="text/javascript"></script>
-  <script>
-    var autocomplete;
+    
+    <script src="./scripts/views/routes.js" type="text/javascript"></script>
+    <script>
+      var autocomplete;
+      
+      // LEGEND
+    
+      var icons = {
+          play: {
+            name: 'Play Areas',
+            icon: 'img/childIcon.png'
+          },
+          dogs: {
+            name: 'Dog Off-Leash Areas',
+            icon: 'img/dogIcon.png'
+          },
+          water: {
+            name: 'Waterfront Areas',
+            icon: 'img/waterIcon.png'
+          }
+        };
+    
+      var legend = document.getElementById('legend');
+    
+      for (var key in icons) {
+        var type = icons[key];
+        var name = type.name;
+        var icon = type.icon;
+        var div = document.createElement('div');
+        div.innerHTML = '<img src="' + icon + '"> ' + name;
+        legend.appendChild(div);
+      }
     
     function initMap() {
 
       // event.preventDefault();
       
+      // INIT MAP
+
       var seattle = {lat: 47.6062, lng: -122.3321};
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 11,
         center: seattle
       });
+
+      // AUTOCOMPLETE
 
       autocomplete = new google.maps.places.Autocomplete(
         (document.getElementById('autocomplete')), {
