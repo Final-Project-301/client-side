@@ -1,19 +1,48 @@
 'use strict';
 
-
-
 var autocomplete;
+
+// LEGEND
+
+var icons = {
+  play: {
+    name: 'Play Areas',
+    icon: 'img/childIcon.png'
+  },
+  dogs: {
+    name: 'Dog Off-Leash Areas',
+    icon: 'img/dogIcon.png'
+  },
+  water: {
+    name: 'Waterfront Areas',
+    icon: 'img/waterIcon.png'
+  }
+};
+
+var legend = document.getElementById('legend');
+
+for (var key in icons) {
+  var type = icons[key];
+  var name = type.name;
+  var icon = type.icon;
+  var div = document.createElement('div');
+  div.innerHTML = '<img src="' + icon + '"> ' + name;
+  legend.appendChild(div);
+}
 
 function initMap() {
 
-
   // event.preventDefault();
+
+  // INIT MAP
 
   var seattle = {lat: 47.6062, lng: -122.3321};
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 11,
     center: seattle
   });
+
+  // AUTOCOMPLETE
 
   autocomplete = new google.maps.places.Autocomplete(
     (document.getElementById('autocomplete')), {
@@ -23,11 +52,11 @@ function initMap() {
 
   // PLAY AREAS CODE
 
-  // if ($('#playBox').val === 'on'){
+  if ($('#playBox').prop('checked')){
 
-  app.Place.fetchPlay(initPlayHelper);
+    app.Place.fetchPlay(initPlayHelper);
 
-  // }
+  }
 
   function initPlayHelper(){
 
@@ -43,14 +72,14 @@ function initMap() {
         icon: image
       });
 
-      let contentString = '<div id="content">'+
+      let contentString = '<div class="popUp">'+
             '<h1>' + app.playArr[i].name + '</h1>'+
             '<p>' + app.playArr[i].address + '</p>'+
-            '<p>' + app.playArr[i].website + '</p>';
-      '</div>';
+            '<p>' + app.playArr[i].website + '</p>' +
+            '</div>';
 
       let infowindow = new google.maps.InfoWindow({
-        content: contentString
+        content: contentString,
       });
 
       playMarker.addListener('click', function() {
@@ -62,7 +91,11 @@ function initMap() {
 
   // DOG AREAS CODE
 
-  app.Place.fetchDog(initDogHelper);
+  if ($('#dogsBox').prop('checked')){
+
+    app.Place.fetchDog(initDogHelper);
+
+  }
 
   function initDogHelper(){
 
@@ -78,10 +111,10 @@ function initMap() {
         icon: image
       });
 
-      let contentString = '<div id="content">'+
+      let contentString = '<div class="popUp">'+
       '<h1>' + app.dogArr[i].name + '</h1>'+
       '<p>' + app.dogArr[i].address + '</p>'+
-      '<p>' + app.dogArr[i].website + '</p>';
+      '<p>' + app.dogArr[i].website + '</p>' +
       '</div>';
 
       let infowindow = new google.maps.InfoWindow({
@@ -96,7 +129,10 @@ function initMap() {
   }
 
   // WATER AREAS CODE
-  app.Place.fetchWater(initWaterHelper);
+
+  if ($('#waterBox').prop('checked')){
+    app.Place.fetchWater(initWaterHelper);
+  }
 
   function initWaterHelper(){
 
@@ -113,10 +149,10 @@ function initMap() {
         icon: image
       });
 
-      let contentString = '<div id="content">'+
+      let contentString ='<div class="popUp">'+
       '<h1>' + app.waterArr[i].name + '</h1>'+
       '<p>' + app.waterArr[i].address + '</p>'+
-      '<p>' + app.waterArr[i].website + '</p>';
+      '<p>' + app.waterArr[i].website + '</p>' +
       '</div>';
 
       let infowindow = new google.maps.InfoWindow({
@@ -138,6 +174,7 @@ function initMap() {
       document.getElementById('autocomplete').placeholder = 'search locations';
     }
   }
+  $('#submit').on('click', initMap);
 }
 
-$('#submit').on('submit', initMap);
+

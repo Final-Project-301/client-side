@@ -12,9 +12,7 @@ body{
 h2{
   padding:5%;
 }
-/* p{
-  line-height: 25px;
-} */
+
 strong {
   font-weight: bold;
 }
@@ -68,11 +66,6 @@ font-size:6vw;
 }
 
 
-div {
-  padding:4%;
-}
-
-
 #activities input{
   width:5%;
  }
@@ -95,7 +88,8 @@ footer div{
   background-color:rgb(161, 255, 155);
   text-align: center;
   margin-top: 10%;
-  height: 10%;
+  height: 10%;.
+  padding: 2%
 
 }
 #hero-image {
