@@ -13,7 +13,7 @@
   
   <script type="text/x-handlebars-template" id="about-us-template">
 
-    <div class="topImage">
+    <div class="template">
       <img src="{{image_url}}" alt="{{name}} Image" title="{{name}} Image" />
       <h2>{{name}}</h2>
       <p>{{bio}}</p>
@@ -28,8 +28,7 @@
       <nav>
         <ul>
           <li id="home"><a href="">HOME</a></li>
-          <li><a href="">SEARCH</a></li>
-          <li><a href="">ABOUT US</a></li>
+          <li id="about-nav"><a href="">ABOUT US</a></li>
         </ul>
       </nav>
     </div>
@@ -38,7 +37,8 @@
 
   <main>
 
-    <section id="hero-image" class="content"></section>
+    <section  class="content"></section>
+    <img id="hero-image" class="content" src="img/pic1.jpeg" alt="Hero image" >
     <section id="greetingPage" class="content"></section>
     <section id="searchPage" class="content">
         <form id="search-form">
@@ -46,7 +46,7 @@
           <button id="submit"type="submit-location">search</button>
         </form>
     </section>
-    <section id="activities" class="tab-content">
+    <section id="activities" class="content">
         
       <label for="filter-boxes">Check the boxes to filter</label>
       <input type="checkbox" id="dogs" name="dogs" value="dogs">
@@ -59,44 +59,18 @@
       
 
     </section>
-    <section>
+    <section class="content">
       <input id="pac-input" class="controls" type="text" placeholder="Start typing here">
       <div id="map-canvas"></div>
-    <div id="map"></div>
-    
-    
+      <div id="map"></div>
     </section>
 
-    <section id="aboutUsPage" class="content">
-      <!-- <div class="topImage">
-        <img src="img/RyanPic.jpg" alt="Ryan Image" title="Ryan Image" />
-        <h2>Ryan Groesch</h2>
-        <p>Ryan is a left-handed, motorcycle riding, sportsball loving nerd. His interests branch to anything from athletics (baseball, frisbee, football, curling and even cricket) to intellectual endeavors (videogames, reading and thoughtful discussions). Ryan looks to learn something every day and take one step closer to being a "renaissance man".</p>
-        <p class=profileLinks><a href="https://www.linkedin.com/in/ryan-groesch/">Linked-In</a> | <a href="https://github.com/ryan-g13">GitHub</a> | <a href="mailto:ryan.groesch@gmail.com">Email</a></p>
-      </div>
-      <div class="topImage">
-        <img src="img/JoannaPic.png" alt="Joanna Image" title="Joanna Image" />
-        <h2>Joanna Coll</h2>
-        <p>Polish from origin, lived in Ireland and UK before relocating to Seattle with her family 4 years ago. Currently trying to pursue her goal of becoming a Software Dev, but with her love for Python maybe even Data Scientist. Joanna loves to cook and even more to eat, with a passion for gastro-tourism. In a free time she enjoys traveling and volunteer as an event planner.</p>
-        <p class=profileLinks><a href="https://www.linkedin.com/in/joanna-coll/">Linked-In</a> | <a href="https://github.com/johannam999">GitHub</a> | <a href="mailto:johannam999@gmail.com">Email</a></p>
-      </div>
-      <div class="topImage">
-        <img src="img/CollinPic.jpg" alt="Collin Image" title="Collin Image" />
-  
-        <h2>Collin Meredith</h2>
-        <p></p>
-        <p class=profileLinks><a href="">Email</a></p>
-      </div>
-      <div class="topImage">
-        <img src="img/ScottPic.jpg" alt="Scott Image" title="Scott Image" />
-        <h2>Scott Thompson</h2>
-        <p>Hello there! My name is Scott, current Code Fellows student and sports fan. I enjoy long walks on the beach, traveling, and the gym. Also have been a big fan of video games throughout my life, duel me in smash!</p>
-        <p class=profileLinks><a href="https://www.linkedin.com/in/scott-thompson-087508158/">Linked-In</a> | <a href="https://github.com/ScottyKnows44">GitHub</a> | <a href="mailto:scottcfalcon@gmail.com">Email</a></p>
-      </div> -->
-    </section>
+    <section id="aboutUsPage" class="content"> </section>
     
   </main>
-
+  <footer>
+    <div>&copy; Copyright 2018</div>
+  </footer>
   
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -119,7 +93,6 @@
 
    
     function initMap() {
-      
     app.Place.fetchPlay(initMapHelper);
     }
 
@@ -149,5 +122,6 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfL336O08zBiCPdcVijYcL6APg0_0UJY&callback=initMap"
       type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZE7tmdg5lXNAD3LpklIr_tivqNEiQEOU&libraries=places">
     </script>
+  
 </body>
 </html>
