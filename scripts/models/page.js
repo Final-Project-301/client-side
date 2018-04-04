@@ -15,7 +15,6 @@ var app = app || {};
   Place.fetchPlay = callback =>
     $.get('http://localhost:3000/activities/play')
       .then( results => {
-        console.log(results);
         Place.loadPlay(results);
         callback();
       });
@@ -24,12 +23,11 @@ var app = app || {};
 
   Place.fetchPlay();
 
-// DOG
+  // DOG
 
   Place.fetchDog = callback =>
     $.get('http://localhost:3000/activities/dogs')
       .then( results => {
-        console.log('fetch DOGS works');
         Place.loadDog(results);
         callback();
       });
@@ -38,12 +36,16 @@ var app = app || {};
 
   Place.fetchDog();
 
-// WATER
+  // WATER
 
   Place.fetchWater = callback =>
     $.get('http://localhost:3000/activities/water')
       .then( results => {
-        console.log('fetch WATER works');
+        for (let i=0;i<results.length;i++){
+          if (results[i].address === null){
+            results[i].address = 'address not available';
+          }
+        }
         Place.loadWater(results);
         callback();
       });
@@ -51,7 +53,6 @@ var app = app || {};
   Place.loadWater = rows => module.waterArr = rows.map(place => new Place(place));
 
   Place.fetchWater();
-
 
   module.Place = Place;
 

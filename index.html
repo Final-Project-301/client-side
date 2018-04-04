@@ -134,10 +134,10 @@
           icon: image
         }); 
 
-        let contentString = '<div id="popUp">'+
+        let contentString = '<div class="popUp">'+
             '<h1>' + app.playArr[i].name + '</h1>'+
             '<p>' + app.playArr[i].address + '</p>'+
-            '<p>' + app.playArr[i].website + '</p>'
+            '<p>' + app.playArr[i].website + '</p>' +
             '</div>';
 
         let infowindow = new google.maps.InfoWindow({
@@ -173,10 +173,10 @@ function initDogHelper(){
     icon: image
   }); 
 
-  let contentString = '<div id="content">'+
+  let contentString = '<div class="popUp">'+
       '<h1>' + app.dogArr[i].name + '</h1>'+
       '<p>' + app.dogArr[i].address + '</p>'+
-      '<p>' + app.dogArr[i].website + '</p>'
+      '<p>' + app.dogArr[i].website + '</p>' +
       '</div>';
 
   let infowindow = new google.maps.InfoWindow({
@@ -211,10 +211,11 @@ function initWaterHelper(){
     icon: image
   }); 
 
-  let contentString =
+  let contentString ='<div class="popUp">'+
       '<h1>' + app.waterArr[i].name + '</h1>'+
       '<p>' + app.waterArr[i].address + '</p>'+
-      '<p>' + app.waterArr[i].website + '</p>'
+      '<p>' + app.waterArr[i].website + '</p>' +
+      '</div>'
 
   let infowindow = new google.maps.InfoWindow({
     content: contentString
