@@ -13,7 +13,7 @@
   
   <script type="text/x-handlebars-template" id="about-us-template">
 
-    <div class="template">
+    <div class="template-d">
       <img src="{{image_url}}" alt="{{name}} Image" title="{{name}} Image" />
       <h2>{{name}}</h2>
       <p>{{bio}}</p>
@@ -23,11 +23,13 @@
 </head>
 <body>
   <header>
-    <div><h1 id="logo"><a href=""> <strong>Play&Rest</strong></a></h1></div>
-    <div>
+    <img id="logo" src="img/logo1.png">
+    
+    <div id="header-nav">
+      <h1 ><strong>Play&Rest</strong></h1>
       <nav>
         <ul>
-          <li id="home"><a href="">HOME</a></li>
+          <li id="home-nav"><a href="">HOME</a></li>
           <li id="about-nav"><a href="">ABOUT US</a></li>
         </ul>
       </nav>
@@ -38,6 +40,7 @@
   <main>
 
     <section  class="content"></section>
+
 
     <img id="hero-image" class="content" src="img/pic1.jpeg" alt="Hero image" >
 
@@ -80,170 +83,20 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-
-  <script src="./scripts/models/page.js" type="text/javascript"></script>
+  
   <script src="./scripts/views/greetingPage.js" type="text/javascript"></script>
   <script src="./scripts/views/aboutUs.js" type="text/javascript"></script>
   <script src="./scripts/views/mainPage.js" type="text/javascript"></script>
+  
+  
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfL336O08zBiCPdcVijYcL6APg0_0UJY&libraries=places&callback=initMap">
+      type="text/javascript"
+  </script>
+  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+  <script src="./scripts/models/page.js" type="text/javascript"></script>
   <script src="./scripts/views/mapView.js" type="text/javascript"></script>
-
-
-  <!-- <script src="./scripts/views/error-view.js" type="text/javascript"></script>
-    <script src="./scripts/views/admin-view.js" type="text/javascript"></script> -->
-
-  <script src="./scripts/views/routes.js" type="text/javascript"></script>
-  <script>
-    var autocomplete;
-    
-    function initMap() {
-
-      // event.preventDefault();
-      
-      var seattle = {lat: 47.6062, lng: -122.3321};
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 11,
-        center: seattle
-      });
-
-      autocomplete = new google.maps.places.Autocomplete(
-        (document.getElementById('autocomplete')), {
-        });
-
-        autocomplete.addListener('place_changed', onPlaceChanged);
-
-      // PLAY AREAS CODE
-
-       if ($('#playBox').prop("checked")){ 
-
-      app.Place.fetchPlay(initPlayHelper);
-
-      }
-
-      function initPlayHelper(){
-            
-        let image = 'img/childIcon.png';
-
-        for (let i=0; i<app.playArr.length;i++) {
-      
-        let newPlace = {lat: parseFloat(app.playArr[i].latitude), lng: parseFloat(app.playArr[i].longitude)};
-        
-        let playMarker = new google.maps.Marker({
-          position: newPlace,
-          map: map,   
-          icon: image
-        }); 
-
-        let contentString = '<div id="popUp">'+
-            '<h1>' + app.playArr[i].name + '</h1>'+
-            '<p>' + app.playArr[i].address + '</p>'+
-            '<p>' + app.playArr[i].website + '</p>'
-            '</div>';
-
-        let infowindow = new google.maps.InfoWindow({
-          content: contentString,
-        });
-
-        playMarker.addListener('click', function() {
-        infowindow.open(map, playMarker);
-        });
-      
-        }
-      }
-    
-    // DOG AREAS CODE
-
- if ($('#dogsBox').prop("checked")){ 
-
-    app.Place.fetchDog(initDogHelper);
- 
-  }
-
-function initDogHelper(){
-      
-  let image = 'img/dogIcon.png';
-
-  for (let i=0; i<app.dogArr.length;i++) {
-
-  let newPlace = {lat: parseFloat(app.dogArr[i].latitude), lng: parseFloat(app.dogArr[i].longitude)};
-  
-  let dogMarker = new google.maps.Marker({
-    position: newPlace,
-    map: map,   
-    icon: image
-  }); 
-
-  let contentString = '<div id="content">'+
-      '<h1>' + app.dogArr[i].name + '</h1>'+
-      '<p>' + app.dogArr[i].address + '</p>'+
-      '<p>' + app.dogArr[i].website + '</p>'
-      '</div>';
-
-  let infowindow = new google.maps.InfoWindow({
-    content: contentString
-  });
-
-  dogMarker.addListener('click', function() {
-  infowindow.open(map, dogMarker);
-  });
-
-  }
-}
-
-    // WATER AREAS CODE
-
-     if ($('#waterBox').prop("checked")){ 
-    app.Place.fetchWater(initWaterHelper);
-  }
-
-function initWaterHelper(){
-      
-  let image = 'img/waterIcon.png';
-
-  for (let i=0; i<app.waterArr.length;i++) {
-
-  let newPlace = {lat: parseFloat(app.waterArr[i].latitude), lng: parseFloat(app.waterArr[i].longitude)};
-  
-  let waterMarker = new google.maps.Marker({
-    position: newPlace,
-    map: map,   
-
-    icon: image
-  }); 
-
-  let contentString =
-      '<h1>' + app.waterArr[i].name + '</h1>'+
-      '<p>' + app.waterArr[i].address + '</p>'+
-      '<p>' + app.waterArr[i].website + '</p>'
-
-  let infowindow = new google.maps.InfoWindow({
-    content: contentString
-  });
-
-  waterMarker.addListener('click', function() {
-  infowindow.open(map, waterMarker);
-  });
-
-  }
-}
-      function onPlaceChanged() {
-        var place = autocomplete.getPlace();
-        if (place.geometry) {
-          map.panTo(place.geometry.location);
-          map.setZoom(15);
-        } else {
-          document.getElementById('autocomplete').placeholder = 'search locations';
-        }
-      }
-    }
-
-  $('#submit').on('click', initMap)
-
-      </script>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfL336O08zBiCPdcVijYcL6APg0_0UJY&libraries=places&callback=initMap"
-      type="text/javascript">
-    </script>
+  <script async defer src="./scripts/views/routes.js" type="text/javascript"></script>
   
 </body>
 </html>

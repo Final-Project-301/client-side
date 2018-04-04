@@ -3,6 +3,10 @@ body{
   margin: 0 auto;
 
 }
+#header-nav h1{
+  padding-bottom:40px;
+  font-size:4vw;
+}
 h2{
   padding:5%;
 }
@@ -58,7 +62,7 @@ li a{
   text-decoration: none;
 }
 nav li {
-font-size:5vw;
+font-size:6vw;
 }
 
 div {
