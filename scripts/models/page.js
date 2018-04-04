@@ -17,7 +17,7 @@ var app = app || {};
       .then( results => {
         console.log('fetch PLAY works');
         Place.loadPlay(results);
-        callback();
+        if (callback) callback();
       });
 
   Place.loadPlay = rows => module.playArr = rows.map(place => new Place(place));
@@ -31,7 +31,7 @@ var app = app || {};
       .then( results => {
         console.log('fetch DOGS works');
         Place.loadDog(results);
-        callback();
+        if (callback) callback();
       });
 
   Place.loadDog = rows => module.dogArr = rows.map(place => new Place(place));
@@ -45,7 +45,7 @@ var app = app || {};
       .then( results => {
         console.log('fetch WATER works');
         Place.loadWater(results);
-        callback();
+        if (callback) callback();
       });
 
   Place.loadWater = rows => module.waterArr = rows.map(place => new Place(place));
