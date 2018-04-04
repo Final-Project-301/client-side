@@ -8,7 +8,7 @@ header {
 }
 nav li{
   display:inline;
-  padding-right:3%;
+  padding-right:4%;
 }
 h2 {
   font-weight: bold;
@@ -30,7 +30,7 @@ h2 {
   border-top-left-radius: 10px;
 }
 #header-nav{
-  margin-top:5%;
+  margin-top:2%;
   margin-left:20%;
 }
 
