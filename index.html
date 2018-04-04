@@ -42,25 +42,30 @@
     <section id="greetingPage" class="content"></section>
     <section id="searchPage" class="content">
         <form id="search-form">
-          <input type="text" name="location" placeholder="location">   
-          <button id="submit"type="submit-location">search</button>
+            <input id="autocomplete" class="controls" type="text" placeholder="search a location">   
+          <button id="submit"type="submit-location">Filtered Search</button>
         </form>
     </section>
+
     <section id="activities" class="content">
+
         
       <label for="filter-boxes">Check the boxes to filter</label>
-      <input type="checkbox" id="dogs" name="dogs" value="dogs">
-      <label for="dogs">Dogs-off leash areas</label>
-      <input type="checkbox" id="play" name="play" value="play">
-      <label for="play">Play areas</label>
-      <input type="checkbox" id="waterfront" name="waterfront" value="waterfront">
-      <label for="waterfront">Waterfronts</label>
-            
-      
+
+      <input type="checkbox" id="playBox" name="play" checked>
+      <label for="play">Play Areas</label>
+
+      <input type="checkbox" id="dogsBox" name="dogs" checked>
+      <label for="dogs">Dog  Off-leash Areas</label>
+
+      <input type="checkbox" id="waterBox" name="water" checked>
+      <label for="water">Waterfront Areas</label>
 
     </section>
+
     <section class="content">
       <input id="pac-input" class="controls" type="text" placeholder="Start typing here">
+1
       <div id="map-canvas"></div>
       <div id="map"></div>
     </section>
@@ -90,37 +95,150 @@
 
   <script src="./scripts/views/routes.js" type="text/javascript"></script>
   <script>
-
-   
+    var autocomplete;
+    
     function initMap() {
-    app.Place.fetchPlay(initMapHelper);
-    }
 
-    function initMapHelper(){
-      var seattle = {lat: 47.6062, lng: -122.3321};
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 11,
-              center: seattle
-            });
-          
-     
-      for (let i=0; i<app.playArr.length;i++) {
-    
-      let  newPlace = {lat: parseFloat(app.playArr[i].latitude), lng: parseFloat(app.playArr[i].longitude)};
+
+      // event.preventDefault();
       
-      let marker = new google.maps.Marker({
-        position: newPlace,
-        map: map   
+      var seattle = {lat: 47.6062, lng: -122.3321};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 11,
+        center: seattle
+      });
+
+      autocomplete = new google.maps.places.Autocomplete(
+        (document.getElementById('autocomplete')), {
+        });
+
+        autocomplete.addListener('place_changed', onPlaceChanged);
+
+      // PLAY AREAS CODE
+
+      // if ($('#playBox').val === 'on'){
+
+      app.Place.fetchPlay(initPlayHelper);
+
+      // }
+
+      function initPlayHelper(){
+            
+        let image = 'img/childIcon.png';
+
+        for (let i=0; i<app.playArr.length;i++) {
+      
+        let newPlace = {lat: parseFloat(app.playArr[i].latitude), lng: parseFloat(app.playArr[i].longitude)};
+        
+        let playMarker = new google.maps.Marker({
+          position: newPlace,
+          map: map,   
+          icon: image
         }); 
-    
+
+        let contentString = '<div id="content">'+
+            '<h1>' + app.playArr[i].name + '</h1>'+
+            '<p>' + app.playArr[i].address + '</p>'+
+            '<p>' + app.playArr[i].website + '</p>'
+            '</div>';
+
+        let infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        playMarker.addListener('click', function() {
+        infowindow.open(map, playMarker);
+        });
+      
         }
       }
     
-    
+    // DOG AREAS CODE
+
+    app.Place.fetchDog(initDogHelper);
+
+function initDogHelper(){
+      
+  let image = 'img/dogIcon.png';
+
+  for (let i=0; i<app.dogArr.length;i++) {
+
+  let newPlace = {lat: parseFloat(app.dogArr[i].latitude), lng: parseFloat(app.dogArr[i].longitude)};
+  
+  let dogMarker = new google.maps.Marker({
+    position: newPlace,
+    map: map,   
+    icon: image
+  }); 
+
+  let contentString = '<div id="content">'+
+      '<h1>' + app.dogArr[i].name + '</h1>'+
+      '<p>' + app.dogArr[i].address + '</p>'+
+      '<p>' + app.dogArr[i].website + '</p>'
+      '</div>';
+
+  let infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+  dogMarker.addListener('click', function() {
+  infowindow.open(map, dogMarker);
+  });
+
+  }
+}
+
+    // WATER AREAS CODE
+    app.Place.fetchWater(initWaterHelper);
+
+function initWaterHelper(){
+      
+  let image = 'img/waterIcon.png';
+
+  for (let i=0; i<app.waterArr.length;i++) {
+
+  let newPlace = {lat: parseFloat(app.waterArr[i].latitude), lng: parseFloat(app.waterArr[i].longitude)};
+  
+  let waterMarker = new google.maps.Marker({
+    position: newPlace,
+    map: map,   
+
+    icon: image
+  }); 
+
+  let contentString = '<div id="content">'+
+      '<h1>' + app.waterArr[i].name + '</h1>'+
+      '<p>' + app.waterArr[i].address + '</p>'+
+      '<p>' + app.waterArr[i].website + '</p>'
+      '</div>';
+
+  let infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+  waterMarker.addListener('click', function() {
+  infowindow.open(map, waterMarker);
+  });
+
+  }
+}
+      function onPlaceChanged() {
+        var place = autocomplete.getPlace();
+        if (place.geometry) {
+          map.panTo(place.geometry.location);
+          map.setZoom(15);
+        } else {
+          document.getElementById('autocomplete').placeholder = 'search locations';
+        }
+      }
+    }
+
+  $('#submit').on('submit', initMap)
+
       </script>
     <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfL336O08zBiCPdcVijYcL6APg0_0UJY&callback=initMap"
-      type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZE7tmdg5lXNAD3LpklIr_tivqNEiQEOU&libraries=places">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfL336O08zBiCPdcVijYcL6APg0_0UJY&libraries=places&callback=initMap"
+      type="text/javascript"
     </script>
   
 </body>
