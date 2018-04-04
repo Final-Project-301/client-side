@@ -38,34 +38,33 @@
   <main>
 
     <section  class="content"></section>
+
     <img id="hero-image" class="content" src="img/pic1.jpeg" alt="Hero image" >
+
     <section id="greetingPage" class="content"></section>
-    <section id="searchPage" class="content">
-        <form id="search-form">
-            <input id="autocomplete" class="controls" type="text" placeholder="search a location">   
-          <button id="submit"type="submit-location">Filtered Search</button>
-        </form>
-    </section>
-
-    <section id="activities" class="content">
-
+      
+      <section id="activities" class="content">
         
-      <label for="filter-boxes">Check the boxes to filter</label>
-
-      <input type="checkbox" id="playBox" name="play" checked>
+        
+        <label for="filter-boxes">Check the boxes to filter</label>
+        
+      <input type="checkbox" id="playBox" name="play" checked="checked">
       <label for="play">Play Areas</label>
-
-      <input type="checkbox" id="dogsBox" name="dogs" checked>
+      
+      <input type="checkbox" id="dogsBox" name="dogs" checked="checked">
       <label for="dogs">Dog  Off-leash Areas</label>
-
-      <input type="checkbox" id="waterBox" name="water" checked>
+      
+      <input type="checkbox" id="waterBox" name="water" checked="checked">
       <label for="water">Waterfront Areas</label>
+      
+      <button id="submit"type="submit-location">Filter Locations</button>
 
     </section>
 
+    <input id="autocomplete" class="controls" type="text" placeholder="search a location">  
+    
     <section class="content">
-      <input id="pac-input" class="controls" type="text" placeholder="Start typing here">
-1
+
       <div id="map-canvas"></div>
       <div id="map"></div>
     </section>
@@ -99,7 +98,6 @@
     
     function initMap() {
 
-
       // event.preventDefault();
       
       var seattle = {lat: 47.6062, lng: -122.3321};
@@ -116,11 +114,11 @@
 
       // PLAY AREAS CODE
 
-      // if ($('#playBox').val === 'on'){
+       if ($('#playBox').prop("checked")){ 
 
       app.Place.fetchPlay(initPlayHelper);
 
-      // }
+      }
 
       function initPlayHelper(){
             
@@ -136,14 +134,14 @@
           icon: image
         }); 
 
-        let contentString = '<div id="content">'+
+        let contentString = '<div id="popUp">'+
             '<h1>' + app.playArr[i].name + '</h1>'+
             '<p>' + app.playArr[i].address + '</p>'+
             '<p>' + app.playArr[i].website + '</p>'
             '</div>';
 
         let infowindow = new google.maps.InfoWindow({
-          content: contentString
+          content: contentString,
         });
 
         playMarker.addListener('click', function() {
@@ -155,7 +153,11 @@
     
     // DOG AREAS CODE
 
+ if ($('#dogsBox').prop("checked")){ 
+
     app.Place.fetchDog(initDogHelper);
+ 
+  }
 
 function initDogHelper(){
       
@@ -189,7 +191,10 @@ function initDogHelper(){
 }
 
     // WATER AREAS CODE
+
+     if ($('#waterBox').prop("checked")){ 
     app.Place.fetchWater(initWaterHelper);
+  }
 
 function initWaterHelper(){
       
@@ -206,11 +211,10 @@ function initWaterHelper(){
     icon: image
   }); 
 
-  let contentString = '<div id="content">'+
+  let contentString =
       '<h1>' + app.waterArr[i].name + '</h1>'+
       '<p>' + app.waterArr[i].address + '</p>'+
       '<p>' + app.waterArr[i].website + '</p>'
-      '</div>';
 
   let infowindow = new google.maps.InfoWindow({
     content: contentString
@@ -233,12 +237,12 @@ function initWaterHelper(){
       }
     }
 
-  $('#submit').on('submit', initMap)
+  $('#submit').on('click', initMap)
 
       </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfL336O08zBiCPdcVijYcL6APg0_0UJY&libraries=places&callback=initMap"
-      type="text/javascript"
+      type="text/javascript">
     </script>
   
 </body>
