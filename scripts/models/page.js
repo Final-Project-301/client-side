@@ -16,7 +16,7 @@ var app = app || {};
     $.get('http://localhost:3000/activities/play')
       .then( results => {
         Place.loadPlay(results);
-        callback();
+        if (callback) callback();
       });
 
   Place.loadPlay = rows => module.playArr = rows.map(place => new Place(place));
@@ -29,7 +29,7 @@ var app = app || {};
     $.get('http://localhost:3000/activities/dogs')
       .then( results => {
         Place.loadDog(results);
-        callback();
+        if (callback) callback();
       });
 
   Place.loadDog = rows => module.dogArr = rows.map(place => new Place(place));
@@ -47,7 +47,7 @@ var app = app || {};
           }
         }
         Place.loadWater(results);
-        callback();
+        if (callback) callback();
       });
 
   Place.loadWater = rows => module.waterArr = rows.map(place => new Place(place));

@@ -15,7 +15,7 @@ var app = app || {};
       .then( results => {
         console.log(results);
         Bio.loadBio(results);
-        callback();
+        if (callback) callback();
       });
 
   Bio.loadBio = rows => Bio.aboutUsData = rows.map(bio => new Bio(bio));
@@ -29,9 +29,10 @@ var app = app || {};
   };
   $('#about-nav').on('click', function(event) {
     event.preventDefault();
-    page(`/about`);
+    $('#aboutUsPage').empty();
     $('.content').hide();
     $('#aboutUsPage').fadeIn(500);
+    page(`/about`);
   });
   module.Bio = Bio;
 })(app);
