@@ -9,7 +9,7 @@
 //   var marker = new google.maps.Marker({
 //     position: seattle,
 //     map: map
-//   }); 
+//   });
 // }
 
 
