@@ -16,7 +16,6 @@ var app = app || {};
   Place.fetchPlay = callback =>
     $.get(`${ENV.apiUrl}/activities/play`)
       .then( results => {
-        console.log(results);
         Place.loadPlay(results);
         if (callback) callback();
       });
@@ -30,7 +29,6 @@ var app = app || {};
   Place.fetchDog = callback =>
     $.get(`${ENV.apiUrl}/activities/dogs`)
       .then( results => {
-        console.log('fetch DOGS works');
         Place.loadDog(results);
         if (callback) callback();
       });

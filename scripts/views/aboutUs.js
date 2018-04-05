@@ -18,7 +18,6 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   Bio.fetchBios = callback =>
     $.get(`${ENV.apiUrl}/activities/bios`)
       .then( results => {
-        console.log(results);
         Bio.loadBio(results);
         if (callback) callback();
       });
