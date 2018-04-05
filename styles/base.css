@@ -3,11 +3,13 @@ body{
   margin: 0 auto;
 
   background-image: url('https://final-project-301.github.io/client-side/img/leaves_tile.jpg');
-  /* background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 40%), url('https://final-project-301.github.io/client-side/img/leaves_tile.jpg'); */
-  background-image: opacity(0.4), url('https://final-project-301.github.io/client-side/img/leaves_tile.jpg');
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 40%), url('https://final-project-301.github.io/client-side/img/leaves_tile.jpg');
 
 }
 
+#makeTextBigger{
+  font-size: 3.4em;
+}
 
 #header-nav h1{
   padding-bottom:40px;
