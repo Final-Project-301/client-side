@@ -55,4 +55,10 @@ form{
   margin: 0 px;
   padding: 0px;
 }
+#filter-lab{
+  margin-bottom:1.5vh;
+}
+li {
+  padding-bottom:0.5vh;
+}
 

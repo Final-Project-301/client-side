@@ -9,9 +9,7 @@
 
     font-size:35px;
     }
-  /* div {
-    padding:20px;
-  } */
+  
   #submit {
     width: 20%;
     padding: 20px;
@@ -28,6 +26,8 @@
   #activities input{
     width:3%
    }
-   
+ li{
+    display:inline;
+  }
  
 }
