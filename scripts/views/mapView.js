@@ -155,7 +155,7 @@ function initMap() {
       let contentString ='<div class="popUp">'+
       '<h1>' + app.waterArr[i].name + '</h1>'+
       '<p>' + app.waterArr[i].address + '</p>'+
-      '<a href="' + app.dogArr[i].website + '">' + '<p>' + app.dogArr[i].website + '</p>' + '</a>' +
+      '<a href="' + app.waterArr[i].website + '">' + '<p>' + app.waterArr[i].website + '</p>' + '</a>' +
       '</div>';
 
       let infowindow = new google.maps.InfoWindow({
