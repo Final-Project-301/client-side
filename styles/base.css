@@ -1,16 +1,18 @@
 body{
   font-family: 'Raleway', sans-serif;
   margin: 0 auto;
-
 }
+
 #header-nav h1{
   padding-bottom:40px;
   font-size:5vh;
   padding-top:40px;
 }
+
 #header-nav {
   font-family: 'Love Ya Like A Sister', cursive;
 }
+
 h2{
   padding:5%;
 }
