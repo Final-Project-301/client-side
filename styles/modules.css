@@ -5,9 +5,12 @@
 }
 
 #legend {
-  border:1px solid black;
+  border:2px solid grey;
   width: 40%;
   margin: 0 auto;
+  background-color: #D6FFD4;
+  padding:7px;
+  border-radius: 6px;
 }
 
 #legend div h3 {
@@ -30,12 +33,11 @@
     font-size: 40px;
   }
   nav li {
-    display:inline;
+    display:inline-block;
     font-size:35px;
     padding-right: 4vw;
     padding-bottom: 2vh;
   }
-  
 
   #submit {
     width: 20%;
@@ -53,6 +55,11 @@
   #activities input{
     width:3%
    }
- 
- 
+  #filter li{
+    display:inline;
+  }
+  #filter {
+    width: 90%;
+  }
+
 }
