@@ -13,6 +13,7 @@ nav li{
   padding-right: 20px;
   padding-bottom: 2vh;
 }
+
 h2 {
   display: inline-block;
   margin-left: 0px;
@@ -53,6 +54,7 @@ form{
   margin: 0 px;
   padding: 0px;
 }
+
 #filter-lab{
   margin-bottom:1.5vh;
 }
