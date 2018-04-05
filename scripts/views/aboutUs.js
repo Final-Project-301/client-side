@@ -3,7 +3,7 @@ var app = app || {};
 const ENV = {};
 
 ENV.isProduction = window.location.protocol === 'https:';
-ENV.productionApiUrl = 'https://play-n-rest.herokuapp.com/';
+ENV.productionApiUrl = 'https://play-n-rest.herokuapp.com';
 ENV.developmentApiUrl = 'http://localhost:3000';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 //Array of Objects containing our About Us information.
