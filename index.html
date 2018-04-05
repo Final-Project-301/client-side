@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
+  <title>Play&Rest</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/modules.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
+  
   <script type="text/x-handlebars-template" id="about-us-template">
 
     <div class="template-d">
@@ -36,7 +36,6 @@
     </div>
   </header>
    
-
   <main>
 
     <section  class="content"></section>
@@ -46,10 +45,12 @@
 
     
       
+
     <section id="activities" class="content">
         
     <ul id="filter"> 
       <li id="filter-lab" ><label for="filter-boxes">Check the boxes to filter</label></li>
+
         
       <li><input type="checkbox" id="playBox" name="play" checked="checked">
       <label for="play">Play Areas</label></li>
@@ -57,11 +58,13 @@
       <li><input type="checkbox" id="dogsBox" name="dogs" checked="checked">
       <label for="dogs">Dog  Off-leash Areas</label></li>
       
+
       <li><input type="checkbox" id="waterBox" name="water" checked="checked">
       <label for="water">Waterfront Areas</label></li>
     </ul> 
       <button id="submit"type="submit-location">Filter Locations</button>
      
+
     </section>
 
     <input id="autocomplete" class="content" class="controls" type="text" placeholder="search a location">  
@@ -70,29 +73,23 @@
 
       <div id="legend"><h3>Legend</h3></div>
 
-
-      <div id="map-canvas"></div>
       <div id="map"></div>
-
     </section>
 
     <section id="aboutUsPage" class="content"> </section>
     
   </main>
   <footer>
-    <div>&copy; Copyright 2018 (Seattle data only)</div>
+    <div><p>&copy; Copyright 2018</p></div>
   </footer>
   
-
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-
   
   <script src="./scripts/views/greetingPage.js" type="text/javascript"></script>
   <script src="./scripts/views/aboutUs.js" type="text/javascript"></script>
   <script src="./scripts/views/mainPage.js" type="text/javascript"></script>
-  
   
   <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfL336O08zBiCPdcVijYcL6APg0_0UJY&libraries=places&callback=initMap">
@@ -102,7 +99,6 @@
   <script src="./scripts/models/page.js" type="text/javascript"></script>
   <script src="./scripts/views/mapView.js" type="text/javascript"></script>
   <script async defer src="./scripts/views/routes.js" type="text/javascript"></script>
-
   
 </body>
 </html>
