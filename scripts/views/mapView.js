@@ -115,10 +115,11 @@ function initMap() {
       });
 
       let contentString = '<div class="popUp">'+
+      '<a href="' + app.dogArr[i].website + '">' +
       '<h1>' + app.dogArr[i].name + '</h1>'+
-      '<p>' + app.dogArr[i].address + '</p>'+
-      '<a href="' + app.dogArr[i].website + '">' + '<p>' + app.dogArr[i].website + '</p>' + '</a>' +
-      '</div>';
+        '<p>' + app.dogArr[i].address + '</p>'+
+         '<p>' + app.dogArr[i].website + '</p>' + '</a>' +
+        '</div>';
 
       let infowindow = new google.maps.InfoWindow({
         content: contentString
@@ -153,10 +154,11 @@ function initMap() {
       });
 
       let contentString ='<div class="popUp">'+
-      '<h1>' + app.waterArr[i].name + '</h1>'+
-      '<p>' + app.waterArr[i].address + '</p>'+
-      '<a href="' + app.waterArr[i].website + '">' + '<p>' + app.waterArr[i].website + '</p>' + '</a>' +
-      '</div>';
+      '<a href="' + app.waterArr[i].website + '">' +
+          '<h1>' + app.waterArr[i].name + '</h1>'+
+            '<p>' + app.waterArr[i].address + '</p>'+
+             '<p>' + app.waterArr[i].website + '</p>' + '</a>' +
+            '</div>';
 
       let infowindow = new google.maps.InfoWindow({
         content: contentString
