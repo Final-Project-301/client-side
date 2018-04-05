@@ -32,7 +32,8 @@
   nav li {
 
     font-size:35px;
-  }
+    }
+  
 
   #submit {
     width: 20%;
@@ -50,6 +51,8 @@
   #activities input{
     width:3%
    }
-   
+ li{
+    display:inline;
+  }
  
 }
