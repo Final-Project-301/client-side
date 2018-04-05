@@ -1,6 +1,5 @@
 'use strict';
 
-
 var autocomplete;
 
 // LEGEND
@@ -76,9 +75,10 @@ function initMap() {
       });
 
       let contentString = '<div class="popUp">'+
-            '<h1>' + app.playArr[i].name + '</h1>'+
+      '<a href="' + app.playArr[i].website + '">' +
+          '<h1>' + app.playArr[i].name + '</h1>'+
             '<p>' + app.playArr[i].address + '</p>'+
-            '<a href="' + app.playArr[i].website + '">' + '<p>' + app.playArr[i].website + '</p>' + '</a>' +
+             '<p>' + app.playArr[i].website + '</p>' + '</a>' +
             '</div>';
 
       let infowindow = new google.maps.InfoWindow({
