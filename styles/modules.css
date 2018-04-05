@@ -1,6 +1,6 @@
 #map {
   border: solid .5em; 
-  border-color: rgb(210, 250, 206);
+  border-color: #1b992f;
   border-radius: 15px;
 }
 
@@ -8,6 +8,7 @@
   border:2px solid grey;
   width: 40%;
   margin: 0 auto;
+  margin-top: 3em;
   background-color: #D6FFD4;
   padding:7px;
   border-radius: 6px;
