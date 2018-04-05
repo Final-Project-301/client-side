@@ -13,9 +13,11 @@ body{
 h2{
   padding:5%;
 }
+
  .bio {
   line-height: 25px;
 }
+
 strong {
   font-weight: bold;
 }
@@ -73,7 +75,6 @@ footer div {
   padding:4%;
 }
 
-
 #activities input{
   width:5%;
  }
@@ -96,7 +97,8 @@ footer div{
   background-color:rgb(210, 250, 206);
   text-align: center;
   margin-top: 10%;
-  height: 10%;
+  height: 10%;.
+  padding: 2%
 
 }
 #hero-image {

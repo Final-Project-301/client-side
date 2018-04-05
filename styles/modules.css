@@ -1,6 +1,30 @@
+#map {
+  border: solid .5em; 
+  border-color: rgb(210, 250, 206);
+  border-radius: 15px;
+}
+
+#legend {
+  border:1px solid black;
+  width: 40%;
+  margin: 0 auto;
+}
+
+#legend div h3 {
+ text-align: center;
+}
+
+#legend div {
+  display: inline-block;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+}
+
 @media screen and (min-width: 640px){
 
-  #map {width:80%;
+  #map {
+    width:80%;
+
   }
   #logo{
     font-size: 40px;
@@ -8,10 +32,8 @@
   nav li {
 
     font-size:35px;
-    }
-  /* div {
-    padding:20px;
-  } */
+  }
+
   #submit {
     width: 20%;
     padding: 20px;
