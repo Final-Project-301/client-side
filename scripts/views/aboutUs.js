@@ -13,7 +13,6 @@ var app = app || {};
   Bio.fetchBios = callback =>
     $.get('http://localhost:3000/activities/bios')
       .then( results => {
-        console.log(results);
         Bio.loadBio(results);
         if (callback) callback();
       });
