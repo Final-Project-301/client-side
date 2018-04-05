@@ -9,7 +9,7 @@ header {
   padding-bottom:3%;
 }
 nav li{
-  display:inline;
+  display:inline-block;
   padding-right: 20px;
 }
 h2 {
