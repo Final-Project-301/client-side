@@ -54,7 +54,7 @@ var app = app || {};
   Place.loadWater = rows => module.waterArr = rows.map(place => new Place(place));
 
   Place.fetchWater();
-
+  $('#references').hide();
 
   module.Place = Place;
 

@@ -24,7 +24,10 @@ h2 {
   margin-left: 10%;
   margin-right: 10%;
 }
-
+#references {
+  margin-left: 10%;
+  margin-right: 10%;
+}
 .bioImage {
   margin-right: 10%;
   border-radius: 10px; 
