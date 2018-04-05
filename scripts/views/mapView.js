@@ -1,5 +1,6 @@
 'use strict';
 
+
 var autocomplete;
 
 // LEGEND
@@ -22,13 +23,15 @@ var icons = {
 var legend = document.getElementById('legend');
 
 for (var key in icons) {
-  var type = icons[key];
-  var name = type.name;
-  var icon = type.icon;
-  var div = document.createElement('div');
-  div.innerHTML = '<img src="' + icon + '"> ' + name;
-  legend.appendChild(div);
+var type = icons[key];
+var name = type.name;
+var icon = type.icon;
+var div = document.createElement('div');
+div.innerHTML = '<img src="' + icon + '"> ' + name;
+legend.appendChild(div);
 }
+
+
 
 function initMap() {
 

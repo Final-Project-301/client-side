@@ -3,21 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
+  <title>Play&Rest</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Play&Rest" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://final-project-301.github.io/client-side/" />
+  <meta property="og:image" content="https://final-project-301.github.io/client-side/img/pic1.jpeg" />
+  <meta property="og:description" content="A mobile friendly application that is designed to help locate nearby parks and water access points." />
+  
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/modules.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
   
   <script type="text/x-handlebars-template" id="about-us-template">
 
     <div class="template-d">
-      <img src="{{image_url}}" alt="{{name}} Image" title="{{name}} Image" />
+      <img class="bioImage" src="{{image_url}}" alt="{{name}} Image" title="{{name}} Image" />
       <h2>{{name}}</h2>
-      <p>{{bio}}</p>
-      <p class=profileLinks><a href="{{linkedin_url}}">Linked-In</a> | <a href="{{github_url}}">GitHub</a> | <a href="mailto:{{email}}">Email</a></p>
+      <p class="bio">{{bio}}</p>
+      <p class="bio" class=profileLinks><a href="{{linkedin_url}}">Linked-In</a> | <a href="{{github_url}}">GitHub</a> | <a href="mailto:{{email}}">Email</a></p>
     </div>
   </script>
 </head>
@@ -43,26 +50,31 @@
 
     <img id="hero-image" class="content" src="img/pic1.jpeg" alt="Hero image" >
 
-    <section id="greetingPage" class="content"></section>
+    
       
-      <section id="activities" class="content">
-               
-        <label for="filter-boxes">Check the boxes to filter</label>
+
+    <section id="activities" class="content">
         
-      <input type="checkbox" id="playBox" name="play" checked="checked">
-      <label for="play">Play Areas</label>
+    <ul id="filter"> 
+      <li id="filter-lab" ><label for="filter-boxes">Check the boxes to filter</label></li>
+
+        
+      <li><input type="checkbox" id="playBox" name="play" checked="checked">
+      <label for="play">Play Areas</label></li>
       
-      <input type="checkbox" id="dogsBox" name="dogs" checked="checked">
-      <label for="dogs">Dog  Off-leash Areas</label>
+      <li><input type="checkbox" id="dogsBox" name="dogs" checked="checked">
+      <label for="dogs">Dog  Off-leash Areas</label></li>
       
-      <input type="checkbox" id="waterBox" name="water" checked="checked">
-      <label for="water">Waterfront Areas</label>
-      
-      <button id="submit" type="submit-location">Filter Locations</button>
+
+      <li><input type="checkbox" id="waterBox" name="water" checked="checked">
+      <label for="water">Waterfront Areas</label></li>
+    </ul> 
+      <button id="submit"type="submit-location">Filter Locations</button>
+     
 
     </section>
 
-    <input id="autocomplete" class="controls" type="text" placeholder="search a location">  
+    <input id="autocomplete" class="content" class="controls" type="text" placeholder="search a location">  
     
     <section class="content">
 
@@ -75,14 +87,13 @@
     
   </main>
   <footer>
-    <div><p>&copy; Copyright 2018</p></div>
+    <div><p>&copy; Copyright 2018 (Seattle Gov data source)</p></div>
   </footer>
   
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   
-  <script src="./scripts/views/greetingPage.js" type="text/javascript"></script>
   <script src="./scripts/views/aboutUs.js" type="text/javascript"></script>
   <script src="./scripts/views/mainPage.js" type="text/javascript"></script>
   

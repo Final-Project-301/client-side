@@ -2,6 +2,7 @@
 
 var app = app || {};
 
+
 (function(module) {
 
   function Place(rawPlaceObject) {
@@ -13,7 +14,7 @@ var app = app || {};
   module.waterArr = [];
 
   Place.fetchPlay = callback =>
-    $.get('http://localhost:3000/activities/play')
+    $.get(`${ENV.apiUrl}/activities/play`)
       .then( results => {
         Place.loadPlay(results);
         if (callback) callback();
@@ -26,7 +27,7 @@ var app = app || {};
   // DOG
 
   Place.fetchDog = callback =>
-    $.get('http://localhost:3000/activities/dogs')
+    $.get(`${ENV.apiUrl}/activities/dogs`)
       .then( results => {
         Place.loadDog(results);
         if (callback) callback();
@@ -39,7 +40,7 @@ var app = app || {};
   // WATER
 
   Place.fetchWater = callback =>
-    $.get('http://localhost:3000/activities/water')
+    $.get(`${ENV.apiUrl}/activities/water`)
       .then( results => {
         for (let i=0;i<results.length;i++){
           if (results[i].address === null){
