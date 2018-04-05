@@ -14,4 +14,4 @@ Acknowledgements: Thank you to all the wonderful TA's and teaching staff at Code
 
 Deployed using Heroku.com and Github.com
 
-Image Attribution: Free images from Pexels.com, Free icons used for the map Iconfinder.com. 
+Image Attribution: Free images from Pexels.com, Free icons used for the map Iconfinder.com., Pngtree.com background imagery

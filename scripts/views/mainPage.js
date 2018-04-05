@@ -7,6 +7,7 @@ var app = app || {};
     event.preventDefault();
     $('.content').show();
     $('#aboutUsPage').hide();
+    $('#references').hide();
     page(`/client-side/`);
   });
   module.Home = Home;

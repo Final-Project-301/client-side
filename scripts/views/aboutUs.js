@@ -36,6 +36,8 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     $('#aboutUsPage').empty();
     $('.content').hide();
     $('#aboutUsPage').fadeIn(500);
+    $('#references').fadeIn(500);
+    
     page(`/about`);
   });
   module.Bio = Bio;
