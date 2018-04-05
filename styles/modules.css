@@ -30,9 +30,11 @@
     font-size: 40px;
   }
   nav li {
-    padding-top: 50px;
+    display:inline;
     font-size:35px;
-    }
+    padding-right: 4vw;
+    padding-bottom: 2vh;
+  }
   
 
   #submit {
@@ -51,8 +53,6 @@
   #activities input{
     width:3%
    }
- li{
-    display:inline;
-  }
+ 
  
 }
